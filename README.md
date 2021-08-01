@@ -66,6 +66,26 @@ Follow this step for setup
   [Install]
   WantedBy=multi-user.target
   ```
+  17. Enable and start ngrok.service
+  ```
+  sudo systemctl enable ngrok.service
+  sudo systemctl start ngrok.service
+  ```
+  18. To test if everything work correctly, do
+  ```
+  sudo systemctl status ngrok.service
+  ```
+  it should output something like
+  ```
+  ● ngrok.service - ngrok
+    Loaded: loaded (/etc/systemd/system/ngrok.service; enabled; vendor enabled)
+    Active: active (running) since Mon 2020-08-24 04:35:22 UTC; 5 days ago
+    Main PID: 682 (ngrok)
+    Tasks: 11 (limit: 1677)
+    Memory: 33.3M
+    CGroup: /system.slice/ngrok.service
+            └─682 /home/nana/ngrok start --all --config /home/galih/.ngrok2/ngrok.yml
+  ```
   
 Have a good study
 
