@@ -38,8 +38,6 @@ Follow this step for setup
   ```
   9. Then you should receive file with .ovpn extension. Copy this file and keep it private
   10. In this case my file is nana.ovpn at /root/home/galih your filename and folder path might be different
-
-  <h3>##SETTING NGROK##<h3>
   11. Download Ngrok binary from https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
   12. Unzip downloaded file to /home/galih (your user folder)
   13. Create new dir /home/galih/.ngrok2
@@ -52,7 +50,6 @@ Follow this step for setup
           proto: tcp
   ```
   15. Change <YOUR AUTHTOKEN SECOND ACOOUNT NGROK> to your ngrok authtoken https://dashboard.ngrok.com/auth/your-authtoken
-  <h3>##SETTING NGROK SERVICE##<h3>
   16. Create service file called <b>ngrok.service</b> and place it in /etc/systemd/system/
   ```
   [Unit]
@@ -89,9 +86,18 @@ Follow this step for setup
     CGroup: /system.slice/ngrok.service
             └─682 /home/galih/ngrok start --all --config /home/galih/.ngrok2/ngrok.yml
   ```
-  <h3>##SETTING VPN ON YOUR DEVICE##<h3>
+  ##SETTING VPN ON YOUR DEVICE##<br/>
 
   19. Install openvpn in your device (it could be your laptop or anything)
+  20. Download your openvpn file with filezilla
+  21. Open galih.ovpn file using your favorite text editor
+  22. Change line to match tunnels url https://dashboard.ngrok.com/status/tunnels at your second ngrok account
+  ```
+    for example if your tunnel url is    tcp://1.tcp.ngrok.io:15342
+    then change line to                  remote 1.tcp.ngrok.io 15342
+  ```
+  23. And that's it, now you're connected to your VPN
+    
   
 Have a good study
 
